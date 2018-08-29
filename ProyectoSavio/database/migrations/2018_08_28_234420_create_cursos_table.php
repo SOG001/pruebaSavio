@@ -17,7 +17,8 @@ class CreateCursosTable extends Migration
             //creacion de los ataributos de la tabla curso
             $table->increments('id');//codigo curso a crear
             $table->string('nombre'); //nombre del curso
-            $table->string('id_profesor')->unique(); // id profesor asignado al curso
+            $table->unsignedInteger('id_profesor');
+            $table->foreign('id_profesor')->refereces('id')->on('profesors'); // id profesor asignado al curso
             $table->timestamps();
         });
     }
